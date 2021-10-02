@@ -68,7 +68,7 @@ function populateHome() {
     className: 'para',
     innerHTML: paraContent3
   });
-  const paraContent4 = `After a rich industrial experience of a year, I have joined VAL lab <a href="https://val.cds.iisc.ac.in/" target="_blank">(https://val.cds.iisc.ac.in/)</a> as a PhD student under the guidance of Prof Venkatesh Babu <a href="http://cds.iisc.ac.in/faculty/venky/" target="_blank">(http://cds.iisc.ac.in/faculty/venky/)</a>. Kindly visit my github page <a href="https://github.com/sunan93" target="_blank">(https://github.com/sunan93)</a> for more of my academic projects`
+  const paraContent4 = `After a rich industrial experience of a year, I have joined <a href="https://val.cds.iisc.ac.in/" target="_blank">VAL lab</a> as a PhD student under the guidance of <a href="http://cds.iisc.ac.in/faculty/venky/" target="_blank">Prof. Venkatesh Babu</a>. Kindly visit my <a href="https://github.com/sunan93" target="_blank">github page</a> for more of my academic projects`
   const homePara4 = createDOMElement('p', {
     className: 'para',
     innerHTML: paraContent4
@@ -148,9 +148,42 @@ function populateWorkExperience() {
     });
     listWrapperWork.appendChild(listItem);
   });
+
+  const educationList = [
+    {
+      college: 'NIT Durgapur',
+      degree: 'BTech, CSE',
+      duration: '[2011 to 2015]'
+    },
+    {
+      college: 'IIT Bombay',
+      degree: 'MTech, CSE',
+      duration: '[2017 to 2019]'
+    },
+    {
+      college: 'IISC Bengaluru',
+      degree: 'PhD, CDS',
+      duration: '[2020 to Present]'
+    }
+  ];
+  const listWrapperEdu = createDOMElement('ul', {
+    className: 'education_list'
+  });
+  educationList.forEach(education => {
+    const listItem = createDOMElement('li', {
+      innerHTML: `<span> <strong>${education.college}</strong>, <strong>${education.degree}</strong>, ${education.duration}`
+    });
+    listWrapperEdu.appendChild(listItem);
+  });
+  const educationTitle = createDOMElement('h2', {
+    className: 'education_title',
+    innerHTML: 'Education'
+  });
   newContentWrapper.appendChild(workExTitle);
   newContentWrapper.appendChild(listWrapperWork);
-  targetContainer.appendChild(newContentWrapper); 
+  newContentWrapper.appendChild(educationTitle);
+  targetContainer.appendChild(newContentWrapper);
+  newContentWrapper.appendChild(listWrapperEdu);
 }
 function populateTabContent() {
   switch (currentTab) {
