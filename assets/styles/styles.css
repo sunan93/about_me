@@ -19,13 +19,9 @@ body {
 .tab:hover {
   border-color: #3c3d3c;
 }
-.activeTab {
-  border-color: #3c3d3c;
-}
 .home {
-  font-weight: 600;
+  font-weight: normal;
   margin-right: 15px;
-  font-size: 16px;
 }
 
 .tabContent {
@@ -71,4 +67,9 @@ h2.name {
 .contact .mode {
   margin-right: 5px;
   font-weight: 600;
+}
+.activeTab {
+  border-color: #3c3d3c;
+  font-weight: 600;
+  font-size: 16px;
 }

@@ -53,12 +53,12 @@ function populateHome() {
     className: 'home_title',
     innerHTML: 'About me'
   });
-  const paraContent1 = `I am a PhD Student at the Department of Computational and Data Sciences at Indian Institute of Sciences, Bengaluru. Prior to this, I did my Masters from Indian Institute of Technology, Bombay (2017-2019) in Computer Science.`
+  const paraContent1 = `I am a PhD Student at the Department of Computational and Data Sciences at Indian Institute of Sciences, Bengaluru. I work primarily in the area of Model Stealing Attacks and Domain Adaptation.`
   const homePara1 = createDOMElement('p', {
     className: 'para',
     innerHTML: paraContent1
   });
-  const paraContent2 = `During my Masters, I worked on several projects in machine learning and deep learning and its applications on NLP tasks such as search and data mining, relation extraction and question answering.`
+  const paraContent2 = `Prior to this, I did my Masters from Indian Institute of Technology, Bombay (2017-2019) in Computer Science. During my Masters, I worked on several projects in machine learning and deep learning and its applications on NLP tasks such as search and data mining, relation extraction and question answering.`
   const homePara2 = createDOMElement('p', {
     className: 'para',
     innerHTML: paraContent2
@@ -68,7 +68,7 @@ function populateHome() {
     className: 'para',
     innerHTML: paraContent3
   });
-  const paraContent4 = `After a rich industrial experience of a year, I have joined <a href="https://val.cds.iisc.ac.in/" target="_blank">VAL lab</a> as a PhD student under the guidance of <a href="http://cds.iisc.ac.in/faculty/venky/" target="_blank">Prof. Venkatesh Babu</a>. Kindly visit my <a href="https://github.com/sunan93" target="_blank">github page</a> for more of my academic projects`
+  const paraContent4 = `After acquiring rich industrial experience for a year, I joined <a href="https://val.cds.iisc.ac.in/" target="_blank">VAL lab</a> as a PhD student under the guidance of <a href="http://cds.iisc.ac.in/faculty/venky/" target="_blank">Prof. Venkatesh Babu</a>.`
   const homePara4 = createDOMElement('p', {
     className: 'para',
     innerHTML: paraContent4
@@ -86,35 +86,57 @@ function populateAcademic() {
   const newContentWrapper = createDOMElement('div', {
     className: 'content_wrapper'
   });
-  const academicTitle = createDOMElement('h2', {
+  const academicTitleProjects = createDOMElement('h2', {
     className: 'academic_title',
-    innerHTML: 'Projects and Assignments'
+    innerHTML: 'Projects'
   });
+  const academicTitlePublications = createDOMElement('h2', {
+    className: 'academic_title',
+    innerHTML: 'Publications'
+  });
+  const publications = [
+    {
+      title: 'Towards Data-Free Model Stealing in a Hard Label Setting (published at CVPR 2022)',
+      link: 'https://sites.google.com/view/dfms-hl'
+    }
+  ];
+  const listWrapperPublications = createDOMElement('ul', {
+    className: 'publications_list'
+  });
+  publications.forEach(publication => {
+    const listItem = createDOMElement('li', {
+      innerHTML: `<span> ${ publication.title }: <a href=${publication.link} target="_blank">${publication.link}</a></span>`
+    });
+    listWrapperPublications.appendChild(listItem);
+  });
+
   const projects = [
     {
       title: 'Data Poisoning: DLCV Course Project',
       link: 'https://github.com/sunan93/DLCV-Course-Project'
     },
-    {
-      title: ' DS200 Assignment-1',
-      link: 'https://github.com/sunan93/DS200-Assignment-1'
-    },
+    // {
+    //   title: ' DS200 Assignment-1',
+    //   link: 'https://github.com/sunan93/DS200-Assignment-1'
+    // },
     {
       title: 'Past Projects available at',
       link: 'https://github.com/sunan93/'
     }
   ];
-  const listWrapper = createDOMElement('ul', {
+  const listWrapperProjects = createDOMElement('ul', {
     className: 'project_list'
   });
   projects.forEach(project => {
     const listItem = createDOMElement('li', {
-      innerHTML: `<span> ${project.title}: <a href=${project.link} target="_blank">${project.link}</a>`
+      innerHTML: `<span> ${project.title}: <a href=${project.link} target="_blank">${project.link}</a></span>`
     });
-    listWrapper.appendChild(listItem);
+    listWrapperProjects.appendChild(listItem);
   });
-  newContentWrapper.appendChild(academicTitle);
-  newContentWrapper.appendChild(listWrapper);
+  newContentWrapper.appendChild(academicTitlePublications);
+  newContentWrapper.appendChild(listWrapperPublications);
+  newContentWrapper.appendChild(academicTitleProjects);
+  newContentWrapper.appendChild(listWrapperProjects);
   targetContainer.appendChild(newContentWrapper);
 }
 function populateWorkExperience() {
